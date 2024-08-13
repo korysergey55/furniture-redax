@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { observer } from 'mobx-react';
-import { useStore } from '../../storeMobx';
-import { toJS } from 'mobx';
-
 import { useNavigate, useParams } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { getProductSelector } from '../../redax/selectors/selectors';
+import { setProduct } from '../../redax/slice/partfolioSlice';
 
 import { ref, getDownloadURL, listAll } from 'firebase/storage';
 import { storage } from '../../Firabase/firabase';
+
+import { v4 as uuidv4 } from 'uuid';
 
 import BookConsultation from '../../Components/bookConsultation/BookConsultation';
 import styles from './styles.module.scss';
@@ -18,12 +19,13 @@ import Slideshow from 'yet-another-react-lightbox/plugins/slideshow';
 import Video from 'yet-another-react-lightbox/plugins/video';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';
 
-const ProductDetails = observer(() => {
+const ProductDetails = () => {
   const { productDetailsName } = useParams();
-  const { PartfolioStore } = useStore();
   const navigate = useNavigate();
 
-  const [product, setProduct] = useState({});
+  const dispatch = useDispatch();
+  const product = useSelector(getProductSelector);
+
   const [index, setIndex] = useState(-1);
   const [storageImages, setStorageImages] = useState([]);
 
@@ -53,7 +55,7 @@ const ProductDetails = observer(() => {
 
   useEffect(() => {
     if (productDetailsName) {
-      setProduct(toJS(PartfolioStore.getProduct(productDetailsName)));
+      dispatch(setProduct(productDetailsName));
     }
   }, [productDetailsName]);
 
@@ -67,7 +69,7 @@ const ProductDetails = observer(() => {
     <div className={styles.product_details}>
       <div className={styles.container}>
         <h2 className={styles.product_path} onClick={() => navigate('/portfolio')}>
-          Portfolio-{product.path}
+          Portfolio-{product?.path}
         </h2>
         <div className={styles.title_vripper}>
           <h2 className={styles.title}>{product?.productName}</h2>
@@ -93,6 +95,6 @@ const ProductDetails = observer(() => {
       />
     </div>
   );
-});
+};
 
 export default ProductDetails;

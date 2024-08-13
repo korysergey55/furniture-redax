@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { modalReduser } from '../slice/modalSlice';
+import { modalReducer } from '../slice/modalSlice';
+import { partfolioReducer } from '../slice/partfolioSlice';
 
 export const store = configureStore({
   reducer: {
-    modal: modalReduser,
+    modal: modalReducer,
+    partfolio: partfolioReducer,
   },
 });

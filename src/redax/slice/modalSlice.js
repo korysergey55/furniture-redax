@@ -7,11 +7,11 @@ const modalSlice = createSlice({
   name: 'modalSlice',
   initialState,
   reducers: {
-    handleModal: (state, { payload }) => {
+    handleModal: (state, _) => {
       state.modal = !state.modal;
     },
   },
 });
 
 export const { handleModal } = modalSlice.actions;
-export const modalReduser = modalSlice.reducer;
+export const modalReducer = modalSlice.reducer;

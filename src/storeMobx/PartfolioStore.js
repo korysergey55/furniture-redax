@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { makeObservable, observable, action, reaction, toJS } from 'mobx';
+
 import { db } from '../Firabase/firabase';
 import { collection, addDoc } from 'firebase/firestore';
 
@@ -7,7 +8,6 @@ import { toast } from 'react-toastify';
 import { productsArr } from '../sourses/products/products';
 
 class PartfolioStore {
-  modal = false;
   isLoading = false;
   products = [...productsArr];
   contactFormMassage = {};
@@ -15,13 +15,11 @@ class PartfolioStore {
 
   constructor() {
     makeObservable(this, {
-      modal: observable,
       isLoading: observable,
       products: observable,
       contactFormMassage: observable,
       footerFormPhone: observable,
 
-      setModal: action,
       setAllProducts: action,
       getAllProducts: action,
       getProduct: action,
@@ -34,9 +32,6 @@ class PartfolioStore {
       _ => console.log('mobx', toJS(this.products))
     );
   }
-  setModal = () => {
-    this.modal = !this.modal;
-  };
 
   setAllProducts = data => {
     this.products = [...data];
@@ -58,7 +53,7 @@ class PartfolioStore {
       // return response;
 
       const response = await addDoc(collection(db, 'mail'), {
-        to: 'Vitaly.furniture.uk@gmail.com',
+        to: 'korysergey55@gmail.com',
         message: {
           subject: `You are resive massage from ${data.email}`,
           text: data.message,

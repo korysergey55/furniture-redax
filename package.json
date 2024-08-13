@@ -2,7 +2,7 @@
   "name": "furniture",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://korysergey55.github.io/furniture/",
+  "homepage": "https://korysergey55.github.io/furniture-redax/",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.7",
     "axios": "^1.6.8",
