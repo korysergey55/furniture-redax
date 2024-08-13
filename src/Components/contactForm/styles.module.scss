@@ -1,0 +1,129 @@
+@import '../../sourses/styles/variebles.scss';
+
+.form {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 20px;
+
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 40px;
+
+  .label_wripper {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .label {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: 0.03em;
+    text-align: left;
+    color: #434455;
+  }
+  .input {
+    width: 100%;
+    height: 40px;
+    padding: 8px 16px;
+
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+
+    border-radius: 4px;
+    border: 1px solid #8e8f99;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    outline: transparent;
+
+    &:focus {
+      border: 2px solid #2196f3;
+    }
+  }
+  .textarea {
+    width: 100%;
+    height: 200px;
+    padding: 8px 16px;
+
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+
+    border-radius: 4px;
+    border: 1px solid #8e8f99;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    outline: transparent;
+
+    resize: none;
+
+    &:focus {
+      border: 2px solid #2196f3;
+    }
+  }
+  button {
+    height: 50px;
+    padding: 5px 20px;
+
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 7px;
+    border: transparent;
+
+    background-color: $blueActive;
+    color: white;
+
+    transition: box-shadow 0.35s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .form {
+    max-width: 1000px;
+
+    .label_wripper {
+      margin-top: 0;
+    }
+
+    .inputs_container {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      gap: 10px;
+    }
+    .input {
+      width: 220px;
+      max-width: 280px;
+    }
+    .textarea {
+      width: 100%;
+    }
+    .button {
+      width: 100%;
+      max-width: 280px;
+      align-self: flex-end;
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .form {
+    .input {
+      width: 280px;
+      max-width: 280px;
+    }
+  }
+}
