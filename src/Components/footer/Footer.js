@@ -9,7 +9,6 @@ import styles from './styles.module.scss';
 import sprite from '../../sourses/icons/sprite.svg';
 
 const Footer = () => {
-  const width = window.screen.width >= 768;
   return (
     <div className={styles.footer}>
       <div className={styles.container}>

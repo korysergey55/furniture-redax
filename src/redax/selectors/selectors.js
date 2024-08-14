@@ -1,5 +1,3 @@
-import { createSelector } from '@reduxjs/toolkit';
-
 export const getModalSelector = state => state.modal.modal;
 
 export const getProductSelector = state =>
