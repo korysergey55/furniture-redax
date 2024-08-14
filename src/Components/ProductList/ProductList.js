@@ -1,23 +1,21 @@
 import React from 'react';
-import { observer } from 'mobx-react';
-import { useStore } from '../../storeMobx/index';
-import { toJS } from 'mobx';
-import { v4 as uuidv4 } from 'uuid';
+import { useSelector } from 'react-redux';
+import { getAllProductsSelector } from '../../redax/selectors/selectors';
 
-import styles from './styles.module.scss';
 import ProductItem from './ProductItem/ProductItem';
+import { v4 as uuidv4 } from 'uuid';
+import styles from './styles.module.scss';
 
-const ProductList = observer(() => {
-  const { PartfolioStore } = useStore();
-  const { products } = PartfolioStore;
+const ProductList = () => {
+  const products = useSelector(getAllProductsSelector);
 
   return (
     <ul className={styles.produc_list}>
-      {toJS(products).map(product => (
+      {products?.map(product => (
         <ProductItem item={product} key={uuidv4()} />
       ))}
     </ul>
   );
-});
+};
 
 export default ProductList;

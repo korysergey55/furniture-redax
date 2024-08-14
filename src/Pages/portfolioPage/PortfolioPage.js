@@ -1,15 +1,15 @@
-import React from 'react'
-import { observer } from 'mobx-react';
+import React from 'react';
+
 import ProductList from '../../Components/ProductList/ProductList';
 
-import styles from './styles.module.scss'
+import styles from './styles.module.scss';
 
-const PortfolioPage = observer(() => {
+const PortfolioPage = () => {
   return (
     <div className={styles.container}>
       <ProductList />
     </div>
   );
-})
+};
 
 export default PortfolioPage;
