@@ -6,3 +6,5 @@ export const getProductSelector = state =>
   state.partfolio.products?.find(item => item.path === state.partfolio.productPath);
 
 export const getAllProductsSelector = state => state.products.products;
+
+export const getLoaderSelector = state => state.isLoading;

@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useStore } from '../../storeMobx/index';
+
+import { useDispatch } from 'react-redux';
+import { setContactForm } from '../../redax/slice/partfolioSlice';
+import { setContactFormThunk } from '../../redax/thunks/thunks';
 
 import scrollController from '../../utiles/scrollController/scrollController';
+import { toast } from 'react-toastify';
 import Loader from '../loader/Loader';
 
 import styles from './styles.module.scss';
@@ -14,7 +18,7 @@ const INITIAL_STATE = {
 };
 
 const ContactForm = () => {
-  const { PartfolioStore } = useStore();
+  const dispatch = useDispatch();
   const [state, setState] = useState({ ...INITIAL_STATE });
   const [loader, setLoader] = useState(false);
 
@@ -35,17 +39,21 @@ const ContactForm = () => {
   };
 
   const submitNewMassage = async () => {
-    try {
-      setLoader(true);
-      await PartfolioStore.setUserMessageAPI(state);
-      setState({ ...INITIAL_STATE });
-      setLoader(false);
-    } catch (error) {
-      console.log(error);
-      setLoader(false);
-    } finally {
-      setLoader(false);
+    dispatch(setContactForm(state));
+    const response = await dispatch(setContactFormThunk(state));
+    if (!response.payload) {
+      toast.error(`Something went wrong. Try again later.`, {
+        theme: 'colored',
+      });
+      return;
     }
+    toast(
+      `Thank you for your interest in our company We will contact you within one working day.`,
+      {
+        theme: 'light',
+      }
+    );
+    setState({ ...INITIAL_STATE });
   };
 
   const handleSubmit = evt => {

@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import styles from './styles.module.scss';
 
-import { observer } from 'mobx-react';
-import { useStore } from '../../../storeMobx/index';
+import { useDispatch } from 'react-redux';
+import { setCallbackForm } from '../../../redax/slice/partfolioSlice';
+import { setCallbackFormThunk } from '../../../redax/thunks/thunks';
 
-const FooterForm = observer(() => {
+import { toast } from 'react-toastify';
+
+const FooterForm = () => {
+  const dispatch = useDispatch();
   const [state, setState] = useState({ phoneNumber: '' });
-  const { PartfolioStore } = useStore();
 
   const handleChange = evt => {
     setState({ phoneNumber: evt.target.value });
@@ -14,7 +17,20 @@ const FooterForm = observer(() => {
 
   const handleSubmit = async evt => {
     evt.preventDefault();
-    await PartfolioStore.setFooterFormPhoneAPI(state);
+    dispatch(setCallbackForm(state));
+    const response = await dispatch(setCallbackFormThunk(state));
+    if (!response.payload) {
+      toast.error(`Something went wrong. Try again later.`, {
+        theme: 'colored',
+      });
+      return;
+    }
+    toast(
+      `Thank you for your interest in our company We will contact you within one working day.`,
+      {
+        theme: 'light',
+      }
+    );
     setState({ phoneNumber: '' });
   };
 
@@ -40,6 +56,6 @@ const FooterForm = observer(() => {
       </button>
     </form>
   );
-});
+};
 
 export default FooterForm;

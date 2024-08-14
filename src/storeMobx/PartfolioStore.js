@@ -81,7 +81,7 @@ class PartfolioStore {
       // return response;
 
       const response = await addDoc(collection(db, 'mail'), {
-        to: 'Vitaly.furniture.uk@gmail.com',
+        to: 'korysergey55@gmail.com',
         message: {
           subject: `You are resive call beck request from ${data.phoneNumber}`,
           text: `You are resive call beck request from ${data.phoneNumber}`,
