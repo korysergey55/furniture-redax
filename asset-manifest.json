@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/furniture-redax/static/css/main.835e7c30.css",
-    "main.js": "/furniture-redax/static/js/main.17f9c9fc.js",
+    "main.js": "/furniture-redax/static/js/main.4f3c3397.js",
     "static/css/662.7c32900b.chunk.css": "/furniture-redax/static/css/662.7c32900b.chunk.css",
     "static/js/662.7bdb859d.chunk.js": "/furniture-redax/static/js/662.7bdb859d.chunk.js",
     "static/css/126.4dec4653.chunk.css": "/furniture-redax/static/css/126.4dec4653.chunk.css",
@@ -86,7 +86,7 @@
     "static/media/sprite.svg": "/furniture-redax/static/media/sprite.779e183f3721adb871634d599b605273.svg",
     "index.html": "/furniture-redax/index.html",
     "main.835e7c30.css.map": "/furniture-redax/static/css/main.835e7c30.css.map",
-    "main.17f9c9fc.js.map": "/furniture-redax/static/js/main.17f9c9fc.js.map",
+    "main.4f3c3397.js.map": "/furniture-redax/static/js/main.4f3c3397.js.map",
     "662.7c32900b.chunk.css.map": "/furniture-redax/static/css/662.7c32900b.chunk.css.map",
     "662.7bdb859d.chunk.js.map": "/furniture-redax/static/js/662.7bdb859d.chunk.js.map",
     "126.4dec4653.chunk.css.map": "/furniture-redax/static/css/126.4dec4653.chunk.css.map",
@@ -107,6 +107,6 @@
   },
   "entrypoints": [
     "static/css/main.835e7c30.css",
-    "static/js/main.17f9c9fc.js"
+    "static/js/main.4f3c3397.js"
   ]
 }
