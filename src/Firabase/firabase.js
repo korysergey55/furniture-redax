@@ -9,13 +9,13 @@ import { getFirestore } from 'firebase/firestore';
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: 'vitaly-furniture.firebaseapp.com',
-  databaseURL: 'https://vitaly-furniture-default-rtdb.europe-west1.firebasedatabase.app',
-  projectId: 'vitaly-furniture',
-  storageBucket: 'vitaly-furniture.appspot.com',
-  messagingSenderId: '46098105184',
-  appId: '1:46098105184:web:241aa05c7ee597a6711405',
-  measurementId: 'G-2KSLJG8EDF',
+  authDomain: process.env.REACT_APP_authDomain,
+  databaseURL: process.env.REACT_APP_BASE_URL,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
+  measurementId: process.env.REACT_APP_measurementId,
 };
 
 // Initialize Firebase

@@ -21,7 +21,7 @@ export const setContactFormThunk = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const response = await addDoc(collection(db, 'mail'), {
-        to: 'korysergey55@gmail.com',
+        to: 'Vitaly.furniture.uk@gmail.com',
         message: {
           subject: `You are resive massage from ${data?.email}`,
           text: data?.message,
@@ -42,7 +42,7 @@ export const setCallbackFormThunk = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const response = await addDoc(collection(db, 'mail'), {
-        to: 'korysergey55@gmail.com',
+        to: 'Vitaly.furniture.uk@gmail.com',
         message: {
           subject: `You are resive call beck request from ${data?.phoneNumber}`,
           text: `You are resive call beck request from ${data?.phoneNumber}`,
